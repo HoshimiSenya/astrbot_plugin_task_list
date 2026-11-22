@@ -1,0 +1,19 @@
+name: astrbot_plugin_task_list
+display_name: 任务列表
+version: 1.0.0
+author: 星见千夜
+repo: https://github.com/HoshimiSenya/astrbot_plugin_task_list
+social_link: https://github.com/HoshimiSenya
+short_desc: 读取 AstrBot 的未来定时任务，按一次性/循环分区渲染成图片并标注任务来源。
+desc: 读取 AstrBot 的未来定时任务，按一次性/循环分区渲染成图片，标注任务来源；内容未变化时复用缓存图片，渲染失败自动回退文本。
+astrbot_version: ">=4.5.0,<5"
+support_platforms:
+  - aiocqhttp
+  - qq_official
+  - telegram
+  - discord
+tags:
+  - 任务
+  - 定时任务
+  - cron
+  - 图片

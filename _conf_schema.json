@@ -1,0 +1,87 @@
+{
+  "output_mode": {
+    "type": "string",
+    "description": "输出模式",
+    "hint": "图片模式把任务列表渲染成一张图片发送；文字模式直接发送纯文本。渲染失败时会自动回退成文字输出。",
+    "obvious_hint": true,
+    "default": "image",
+    "options": [
+      "image",
+      "text"
+    ],
+    "labels": [
+      "图片模式",
+      "文字模式"
+    ]
+  },
+  "image_cache": {
+    "type": "bool",
+    "description": "复用上次的图片",
+    "hint": "任务列表内容与上次完全一致时，直接复用上次渲染好的图片，不再重复渲染，省内存和 CPU。关闭后每次都会重新出图。",
+    "obvious_hint": true,
+    "default": true
+  },
+  "cache_max_mb": {
+    "type": "int",
+    "description": "图片缓存上限 (MB)",
+    "hint": "缓存目录超过该大小时，按最后使用时间淘汰最旧的图片。设为 0 表示不限制容量。",
+    "default": 32,
+    "slider": {
+      "min": 0,
+      "max": 512,
+      "step": 8
+    }
+  },
+  "cache_ttl_hours": {
+    "type": "int",
+    "description": "图片缓存有效期 (小时)",
+    "hint": "超过该时间的缓存图片会在下次写入时清理。填 0 表示不按时间过期。",
+    "default": 168,
+    "slider": {
+      "min": 0,
+      "max": 720,
+      "step": 24
+    }
+  },
+  "admin_only": {
+    "type": "bool",
+    "description": "仅管理员可用",
+    "hint": "开启后只有 AstrBot 管理员才能使用 /任务列表；关闭后所有用户可用。",
+    "default": true
+  },
+  "only_current_session": {
+    "type": "bool",
+    "description": "只显示当前会话的任务",
+    "hint": "开启后只列出属于当前群聊/私聊的任务；关闭则显示 AstrBot 里的全部定时任务。",
+    "default": false
+  },
+  "show_session": {
+    "type": "bool",
+    "description": "显示任务所属会话",
+    "hint": "在图片或文字里标注任务属于哪个会话（umo），排查「任务发错群」时很有用。",
+    "default": false
+  },
+  "timezone": {
+    "type": "string",
+    "description": "展示用时区",
+    "hint": "留空表示跟随服务器本地时区，也可以填 IANA 时区名，例如 Asia/Shanghai。只影响图片/文字里显示的时间，不影响任务实际执行。",
+    "default": ""
+  },
+  "render_scale": {
+    "type": "int",
+    "description": "图片超采样倍数",
+    "hint": "先按 N 倍尺寸绘制再缩回，字体会更干净；2 已经足够清晰，调大更慢更占内存。",
+    "default": 2,
+    "slider": {
+      "min": 1,
+      "max": 4,
+      "step": 1
+    }
+  },
+  "show_description": {
+    "type": "bool",
+    "description": "显示任务备注",
+    "hint": "显示创建任务时填写的描述，太长会截断。",
+    "default": true
+  }
+}
